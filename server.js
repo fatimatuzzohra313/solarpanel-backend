@@ -40,7 +40,7 @@ app.use(cookieParser());
 
 const server = async () => {
   try {
-        await connect()
+    await connect()
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });

@@ -106,7 +106,7 @@ export const registerUser = asyncHandler(async (req, res) => {
       secure: process.env.NODE_ENV === "production",
     });
 
-    await sendRegistrationEmail(user);
+    // await sendRegistrationEmail(user);
 
     res.status(201).json({
       id: user.id,
@@ -283,36 +283,36 @@ export const updateUserProfile = asyncHandler(async (req, res) => {
   });
 });
 
-const sendRegistrationEmail = async (user) => {
-  try {
-    const emailTemplatePath = path.join(__dirname, "../views/template.ejs");
-    const emailHtml = await ejs.renderFile(emailTemplatePath, {
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
-      companyName: user.companyName,
-      companyRole: user.companyRole,
-      phone: user.phone,
-      state: user.state,
-      country: user.country,
-      userType: user.userType,
-      password: user.password,
-      currentYear: new Date().getFullYear(),
-    });
+// const sendRegistrationEmail = async (user) => {
+//   try {
+//     const emailTemplatePath = path.join(__dirname, "../views/template.ejs");
+//     const emailHtml = await ejs.renderFile(emailTemplatePath, {
+//       firstName: user.firstName,
+//       lastName: user.lastName,
+//       email: user.email,
+//       companyName: user.companyName,
+//       companyRole: user.companyRole,
+//       phone: user.phone,
+//       state: user.state,
+//       country: user.country,
+//       userType: user.userType,
+//       password: user.password,
+//       currentYear: new Date().getFullYear(),
+//     });
 
-    const mailOptions = {
-      from: process.env.GMAIL_EMAIL,
-      to:  user.email,
-      subject: `New ${user.userType} User Registration: ${user.firstName} ${user.lastName}`,
-      html: emailHtml,
-    };
+//     // const mailOptions = {
+//     //   from: process.env.GMAIL_EMAIL,
+//     //   to:  user.email,
+//     //   subject: `New ${user.userType} User Registration: ${user.firstName} ${user.lastName}`,
+//     //   html: emailHtml,
+//     // };
 
-    await transporter.sendMail(mailOptions);
-  } catch (error) {
-    console.error("Error sending registration email:", error);
-    throw error;
-  }
-};
+//     // await transporter.sendMail(mailOptions);
+//   } catch (error) {
+//     console.error("Error sending registration email:", error);
+//     throw error;
+//   }
+// };
 export const updatePassword = asyncHandler(async (req, res) => {
   const { currentPassword, newPassword } = req.body;
   const user = await User.findById(req.user._id);
