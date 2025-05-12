@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New <%= productType %> Listing</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #4A4A4A;
+            background-color: #f5f5f5;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 32px 24px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header styles */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 24px;
+        }
+
+        .subject {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #333333;
+        }
+
+        /* Content styles */
+        .content {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 4px;
+        }
+
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 24px;
+            color: #333333;
+        }
+
+        .product-info {
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        /* Product details table */
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 32px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .details-table tr {
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .details-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .details-table td {
+            padding: 12px 16px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #495057;
+            width: 40%;
+        }
+
+        .detail-value {
+            color: #212529;
+        }
+
+        /* CTA button */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #0066CC;
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            margin: 24px 0;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background-color: #0052a3;
+        }
+
+        /* Footer styles */
+        .footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .contact {
+            margin: 24px 0;
+        }
+
+        .contact a {
+            color: #0066CC;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 16px;
+            }
+
+            .content {
+                padding: 16px;
+            }
+
+            .subject {
+                font-size: 20px;
+            }
+
+            .details-table td {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="subject">
+                New <%= productType %> <% if (typeof listingType !== 'undefined') { %><%= listingType %><% } %> Listing
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="greeting">
+                Hello <%= typeof userName !== 'undefined' ? userName : 'Valued Customer' %>,
+            </div>
+
+            <div class="product-info">
+                A new product has just been listed on Tradifier by <%= uploaderName %>
+                <% if (typeof uploaderCompany !== 'undefined' && uploaderCompany) { %>
+                    from <%= uploaderCompany %>
+                <% } %>:
+            </div>
+
+            <table class="details-table">
+                <tr>
+                    <td class="detail-label">Category</td>
+                    <td class="detail-value"><%= productDetails.category %></td>
+                </tr>
+                <tr>
+                    <td class="detail-label">Part Number</td>
+                    <td class="detail-value"><%= productDetails.partNumber %></td>
+                </tr>
+                <tr>
+                    <td class="detail-label">Manufacturer</td>
+                    <td class="detail-value"><%= productDetails.manufacturer %></td>
+                </tr>
+                <tr>
+                    <td class="detail-label">Condition</td>
+                    <td class="detail-value"><%= productDetails.condition %></td>
+                </tr>
+                <tr>
+                    <td class="detail-label">Price</td>
+                    <td class="detail-value">
+                        $<%= productDetails.price %>/unit
+                        <% if (productDetails.pricePerWatt) { %>
+                            <br>
+                            $<%= productDetails.pricePerWatt %>/watt
+                        <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="detail-label">Quantity Available</td>
+                    <td class="detail-value"><%= productDetails.quantity %></td>
+                </tr>
+            </table>
+
+            <div style="text-align: center;">
+                <a href="<%= typeof viewListingUrl !== 'undefined' ? viewListingUrl : '#' %>" class="cta-button">View Listing</a>
+            </div>
+
+            <div class="contact">
+                For any questions, please contact us:<br>
+                Email: <a href="mailto:support@tradifier.com">support@tradifier.com</a><br>
+                Phone: <a href="tel:+1-123-456-7890">123-456-7890</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="signature">
+                Happy trading,<br>
+                Tradifier
+            </div>
+            <p style="margin-top: 16px;">
+                © <%= currentYear %> Tradifier. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

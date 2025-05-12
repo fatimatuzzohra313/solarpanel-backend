@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Enveritus</title>
+  <style>
+    /* Reset styles */
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #f9fafb;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    /* Container styles */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Logo section */
+    .logo-section {
+      padding: 24px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* Header styles */
+    .header {
+      padding: 32px 24px;
+      background: linear-gradient(135deg, #161e3c 0%, #2d3867 100%);
+      text-align: center;
+      color: white;
+    }
+
+    .welcome-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .header-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* Content styles */
+    .content {
+      padding: 24px;
+    }
+
+    .greeting {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    /* Table styles */
+    .details-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      margin: 24px 0;
+      overflow: hidden;
+    }
+
+    .details-table th {
+      background: #f8fafc;
+      text-align: left;
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #4b5563;
+      border-bottom: 1px solid #e5e7eb;
+      width: 30%;
+    }
+
+    .details-table td {
+      padding: 16px;
+      color: #1f2937;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .details-table tr:last-child th,
+    .details-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Badge styles */
+    .user-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .user-badge.it {
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+
+    .user-badge.solar {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+
+    /* Password container */
+    .password-container {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 24px 0;
+    }
+
+    .password-label {
+      font-weight: 600;
+      color: #92400e;
+      margin-bottom: 4px;
+    }
+
+    .password-value {
+      font-family: monospace;
+      color: #92400e;
+    }
+
+    /* Button styles */
+    .login-button {
+      display: inline-block;
+      width: 100%;
+      padding: 12px 24px;
+      background-color: #161e3c;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .login-button:hover {
+      background-color: #2d3867;
+    }
+
+    /* Footer styles */
+    .footer {
+      background: #f8fafc;
+      padding: 24px;
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .footer p {
+      margin: 8px 0;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #f6660d;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      margin-top: 16px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <svg style="height: 32px; width: 160px;" viewBox="0 0 892.39 200.7" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <style>.cls-2{stroke-width:0;fill:#161e3c}</style>
+          </defs>
+          <g data-name="Layer 1">
+            <path class="cls-2" d="M361.89 51.9h-36.87v113.82h-18.44V51.9h-36.87V34.03h92.18V51.9Zm-11.29 64.72c0-30.1 15.61-45.34 39.51-45.34h1.88v17.87h-1.88c-13.55 0-21.07 8.84-21.07 27.47v49.1H350.6v-49.1Zm94.63-46.47c26.15-.56 48.91 22.39 48.35 48.54v47.03h-18.44v-14.86c-4.52 9.22-16.93 16.37-29.91 16.37-26.15.56-49.1-22.39-48.54-48.54-.56-26.15 22.39-49.1 48.54-48.54Zm.19 17.87c-17.12 0-30.29 13.55-30.29 30.67s13.36 30.66 30.29 30.66 29.91-13.54 29.91-30.66-12.79-30.67-29.91-30.67Zm58.5 30.67c-.56-26.15 22.39-49.1 48.54-48.54 12.23 0 22.39 5.08 29.72 13.54V34.02h18.62v84.66c.56 26.15-22.2 49.1-48.35 48.54-26.15.56-49.1-22.39-48.54-48.54Zm48.54 30.66c16.93 0 30.1-13.54 30.1-30.66s-13.17-30.67-30.1-30.67-30.1 13.55-30.1 30.67 13.17 30.66 30.1 30.66ZM627.14 36.1c6.21 0 11.1 5.08 11.1 11.29s-4.89 11.29-11.1 11.29-11.29-5.08-11.29-11.29c0-6.58 5.08-11.29 11.29-11.29Zm-9.22 35.56h18.44v94.06h-18.44V71.66Zm43.83 17.87h-14.11V71.66h14.49c2.07-23.33 15.61-37.25 38.38-38.19v17.87c-11.29 1.32-19.19 8.28-19.94 20.32h19.94v17.87h-20.32v76.19h-18.44V89.53Zm61.14-53.43c6.21 0 11.1 5.08 11.1 11.29s-4.89 11.29-11.1 11.29-11.29-5.08-11.29-11.29c0-6.58 5.08-11.29 11.29-11.29Zm-9.21 35.56h18.44v94.06h-18.44V71.66ZM840.66 117c0 3.2-.19 6.02-.56 8.47h-76c1.51 14.11 12.98 23.89 28.03 23.89 9.22 0 16.74-3.2 22.58-9.41l22.01.19c-8.28 16.37-25.21 27.09-44.02 27.09-26.53.56-48.91-22.2-48.35-48.35-.56-26.15 21.63-49.29 47.78-48.73 24.46 0 47.78 18.44 48.54 46.84Zm-19.76-6.59c-3.57-12.98-14.86-22.39-28.22-22.39-14.3 0-25.02 9.03-28.6 22.39h56.82Zm30.1 6.21c0-30.1 15.61-45.34 39.51-45.34h1.88v17.87h-1.88c-13.55 0-21.07 8.84-21.07 27.47v49.1H851v-49.1Z"></path>
+            <path d="m214.27 48.16-57.79 27.52V48.16H0V0h214.27v48.16zm-57.79 75.68-57.79 27.52v-27.52H49.35V75.68h107.13v48.16z" style="fill:#f6660d;stroke-width:0"></path>
+            <path class="cls-2" d="M49.35 151.36H98.7v49.35H49.35z"></path>
+          </g>
+      </svg>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <div class="welcome-badge">Welcome aboard!</div>
+      <h1 class="header-title">Your Account Details</h1>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="greeting">Dear <%= firstName %> <%= lastName %>,</div>
+      <p>Thank you for registering with <strong><%= companyName %></strong>. We're excited to have you on board! Below are your account details:</p>
+
+      <!-- Details Table -->
+      <table class="details-table">
+        <tr>
+          <th>Name</th>
+          <td><%= firstName %> <%= lastName %></td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td><%= email %></td>
+        </tr>
+        <tr>
+          <th>User Type</th>
+          <td>
+            <span class="user-badge <%= userType.toLowerCase() %>"><%= userType %></span>
+          </td>
+        </tr>
+        <tr>
+          <th>Company Role</th>
+          <td><%= companyRole %></td>
+        </tr>
+        <tr>
+          <th>Phone</th>
+          <td><%= phone %></td>
+        </tr>
+        <tr>
+          <th>Location</th>
+          <td><%= state %>, <%= country %></td>
+        </tr>
+      </table>
+
+      <div class="password-container">
+        <div class="password-label">Your Password</div>
+        <div class="password-value"><%= password %></div>
+      </div>
+
+      <p>For security reasons, we recommend changing your password after your first login.</p>
+
+      <a href="#" class="login-button">Log In to Your Account</a>
+    </div>
+
+    <div class="footer">
+      <p>Need help? Contact our support team:</p>
+      <p><a href="mailto:support@yourcompany.com">support@yourcompany.com</a></p>
+      <p>Phone: +123-456-7890</p>
+      <p>Address: 123 Business Street, City, Country</p>
+      <div class="copyright">© <%= currentYear %> Your Company. All rights reserved.</div>
+    </div>
+  </div>
+</body>
+</html>
